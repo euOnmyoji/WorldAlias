@@ -10,6 +10,9 @@ import org.spongepowered.api.world.Locatable;
 
 import javax.annotation.Nullable;
 
+/**
+ * @author GiNYAi, edited by yinyangshi
+ */
 public class PapiHandler {
     private WorldAliasPlugin plugin;
 

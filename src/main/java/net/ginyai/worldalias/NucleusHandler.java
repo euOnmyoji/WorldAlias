@@ -11,6 +11,9 @@ import javax.annotation.Nonnull;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * @author GiNYAi, edited by yinyangshi
+ */
 public class NucleusHandler implements NucleusMessageTokenService.TokenParser {
     private WorldAliasPlugin plugin;
 
