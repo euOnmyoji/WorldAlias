@@ -13,10 +13,11 @@ import java.util.Optional;
 
 public class NucleusHandler implements NucleusMessageTokenService.TokenParser {
     private WorldAliasPlugin plugin;
+
     public NucleusHandler(WorldAliasPlugin plugin) throws PluginAlreadyRegisteredException {
         this.plugin = plugin;
-        NucleusAPI.getMessageTokenService().register(plugin.getContainer(),this);
-        if(!NucleusAPI.getMessageTokenService().registerPrimaryToken("worldalias",plugin.getContainer(),"alias")){
+        NucleusAPI.getMessageTokenService().register(plugin.getContainer(), this);
+        if (!NucleusAPI.getMessageTokenService().registerPrimaryToken("worldalias", plugin.getContainer(), "alias")) {
             plugin.getLogger().warn("Failed to register token '{{worldalias}}' to nucleus.");
         }
     }
@@ -25,8 +26,9 @@ public class NucleusHandler implements NucleusMessageTokenService.TokenParser {
     @Nonnull
     @Override
     public Optional<Text> parse(String tokenInput, CommandSource source, Map<String, Object> variables) {
-        if(tokenInput.equals("alias")&&source instanceof Locatable){
-            return Optional.ofNullable(plugin.getAlias(((Locatable) source).getWorld()));
+        String prefix = "alias_";
+        if (tokenInput.startsWith(prefix) && source instanceof Locatable) {
+            return Optional.ofNullable(plugin.getAlias(((Locatable) source).getWorld(), tokenInput.substring(prefix.length())));
         }
         return Optional.empty();
     }
