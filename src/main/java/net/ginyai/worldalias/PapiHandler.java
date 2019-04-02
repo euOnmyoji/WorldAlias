@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 public class PapiHandler {
     private WorldAliasPlugin plugin;
 
-    public PapiHandler(WorldAliasPlugin plugin) throws Exception {
+    PapiHandler(WorldAliasPlugin plugin) throws Exception {
         this.plugin = plugin;
         PlaceholderService service = Sponge.getServiceManager().provideUnchecked(PlaceholderService.class);
         service.load(this, "worldalias", plugin)
@@ -27,11 +27,6 @@ public class PapiHandler {
 
     @Placeholder(id = "worldalias")
     public Text getWorldAlias(@Source Locatable source, @Nullable @Token String group) {
-        try {
-            return plugin.getAlias(source.getWorld(), group == null ? "default" : group);
-        } catch (Throwable e) {
-            plugin.getLogger().warn("error while parse placeholder", e);
-        }
-        return Text.EMPTY;
+        return plugin.getAlias(source.getWorld(), group == null ? "default" : group);
     }
 }

@@ -113,7 +113,7 @@ public class WorldAliasPlugin {
         if (alias == null) {
             return null;
         } else {
-            return alias.get(world.getName()).get(group);
+            return alias.get(group).get(world.getName());
         }
     }
 
