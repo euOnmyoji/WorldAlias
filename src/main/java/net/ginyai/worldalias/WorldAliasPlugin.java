@@ -129,9 +129,7 @@ public class WorldAliasPlugin {
         alias = new HashMap<>(4);
         node.getNode("WorldAlias", "Alias").getChildrenMap().forEach((group, mapperNode) -> {
             Map<String, Text> mappers = new HashMap<>(4);
-            mapperNode.getChildrenMap().forEach((name, vNode) -> {
-                mappers.put(name.toString(), parseText(vNode.getString()));
-            });
+            mapperNode.getChildrenMap().forEach((name, vNode) -> mappers.put(name.toString(), parseText(vNode.getString())));
             alias.put(group.toString(), mappers);
         });
     }

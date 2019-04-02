@@ -27,6 +27,11 @@ public class PapiHandler {
 
     @Placeholder(id = "worldalias")
     public Text getWorldAlias(@Source Locatable source, @Nullable @Token String group) {
-        return plugin.getAlias(source.getWorld(), group == null ? "default" : group);
+        try {
+            return plugin.getAlias(source.getWorld(), group == null ? "default" : group);
+        } catch (Throwable e) {
+            plugin.getLogger().warn("error while parse placeholder", e);
+        }
+        return Text.EMPTY;
     }
 }

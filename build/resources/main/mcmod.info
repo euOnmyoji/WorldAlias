@@ -1,0 +1,19 @@
+[
+    {
+        "modid": "worldalias",
+        "name": "WorldAlias",
+        "version": "1.0",
+        "description": "Provides a custom world alias placeholder for nucleus and PAPI",
+        "authorList": [
+            "GiNYAi"
+        ],
+        "dependencies": [
+            "placeholderapi",
+            "spongeapi@7.0.0",
+            "nucleus"
+        ],
+        "requiredMods": [
+            "spongeapi@7.0.0"
+        ]
+    }
+]
